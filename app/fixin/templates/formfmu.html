@@ -1,0 +1,133 @@
+{#
+Copyright 1996 - 2024 by Eric House (xwords@eehouse.org).  All rights
+reserved.
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
+02111-1307, USA.
+#}
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2><em>FixMeUp!</em> Online (<a href="{{ page_link }}">copy this link</a>)</h2>
+
+<form action="{{ url_for('fixin.formfmu') }}" method=post>
+    <div>Display as chart<input type="RADIO" name="display" value="png"
+                                {% if not params.display == 'table' %}
+                                checked
+                                {% endif %}
+                                >
+        or tabulated text<INPUT TYPE="radio" name="display" VALUE="table"
+                                {% if params.display == 'table' %}
+                                                          checked
+                                {% endif %}
+                                ></div>
+    <div>Teeth on chainrings (front): largest: <input type=text NAME="maxRing" SIZE=2 VALUE="{{params.maxRing}}">
+    and smallest: <input type=text NAME="minRing" size=2 value="{{params.minRing}}"></div>
+    <div>Teeth on cogs (rear): largest: <input type=text NAME="maxCog" SIZE=2 VALUE="{{params.maxCog}}">and smallest:
+        <INPUT TYPE=TEXT NAME="minCog" size=2 value="{{params.minCog}}"></div>
+    <div>Units below are centimeters
+        <input type="radio" name="isMetric" value="1"
+               {% if params.isMetric %}
+               checked
+               {% endif %}
+               >
+        or inches
+        <input type="radio" name="isMetric" value="0"
+               {% if not params.isMetric %}
+               checked
+               {% endif %}
+               >
+    </div>
+    <div>Chainstay length (in above units): <input type=text name="stayLen" size=6 value="{{ params.stayLen }}"></div>
+    <div>
+        Tire diameter:
+        <select name="wheelDiam" >
+            {% for one in wheelSize %}
+            <option value = "{{ one[0] }}"
+                    {% if params.wheelDiam == one[0] %}
+                    selected
+                    {% endif %}
+                    >
+                {{ one[1] }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        Include <a href="{{ url_for('fixin.tutorial1', _anchor='halflink') }}">half-link</a>?
+        Yes<input type="radio" name="useHalfLink" value="1"
+                  {% if params.useHalfLink %}
+                  checked
+                  {% endif %}
+                  >
+        No<input type="radio" name="useHalfLink" value="0"
+               {% if not params.useHalfLink %}
+                 checked
+               {% endif %}
+                 >
+    </div>
+    <div>
+<!--
+        <a href="{{ url_for('fixin.stretch') }}">Chain stretch</a> (in inches per 12 inches of chain):
+        <input type=text NAME="stretch" SIZE=4 value="{{ params.stretch }}">
+    </div>
+    <div> <a href="{{ url_for('fixin.tutorial1', _anchor='highlight_area') }}">Highlight area</a>:
+        <select name="axleAdjust" >
+            {% for one in axleAdjust %}
+            <option value="{{ one[0] }}"
+                    {% if params.axleAdjust == one[0] %}
+                    selected
+                    {% endif %}
+                    >
+                {{one[1]}}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+-->
+    <a href="stretch.php">Chain stretch</a> (in inches per 12 inches of chain):
+    <input type=text NAME="stretch" SIZE=4
+           value="{{ params.stretch }}">
+    <br>
+    <a href="tutorial1.php#highlight_area">Highlight area</a>:
+    <select name="axleAdjust" >
+        <option value="none">Off
+        <option selected value="vert">Vertical
+        <option value="fi">Fixed. Inn.
+        <option value="ex">Excentriker
+        <option value="hor">Horizontal
+    </select></div>
+    <div align="center"> <input type=submit name=generate value="Generate"></div>
+</form>
+
+<h3>Results</h3>
+<table>
+    <tr valign="top">
+        <td><a href="{{ left_url }}"><img src="{{ url_for('static', filename='img/left.png') }}"></a></td>
+        <td>
+            {% if center_url %}
+            <img src="{{ center_url }}">
+            {% endif %}
+            {% if table %}
+            {{ table }}
+            {% endif %}
+        </td>
+        <td><a href="{{ right_url }}"><img src="{{ url_for('static', filename='img/right.png') }}"></a></td>
+    </tr>
+</table>
+
+{% endblock %}

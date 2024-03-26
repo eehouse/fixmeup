@@ -1,0 +1,71 @@
+{#
+Copyright 1996 - 2024 by Eric House (xwords@eehouse.org).  All rights
+reserved.
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
+02111-1307, USA.
+#}
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="dated">
+    The contents of this page are out-of-date and are here for
+    historical interest only. I no longer develop for Mac or Windows
+    computers and the apps that ran on them are no longer
+    available. On the Java side, browsers no longer support Applets
+    and so that version's also gone. It's
+    the <a href="{{url_for('fixin.formfmu')}}">HTML version</a> now, or
+    nothing.
+</div>
+
+<H1>Downloading Native <EM>FixMeUp!</EM> Versions</H1>
+
+<P><EM>FixMeUp!</EM> is available for Wintel boxes.  </P>
+
+<P> This program is free for non-commercial use. By most standards
+it's "better" (i.e. more powerful) than the original <A HREF="{{
+url_for('fixin.javafmu') }} ">Java</A> version, particularly if you
+want to open multiple windows to compare different frames or gearing
+options.  </P>
+
+<P>But because it runs directly on your hardware, you don't have the
+Java guarantee that I can't erase your hard disk or something of the
+like. I wouldn't do that, but then most of you don't know me, so if
+either you or the owner of your computer is paranoid, go with
+the <A HREF="{{ url_for('fixin.formfmu') }}">html form version</A> or
+one of the <A HREF="{{ url_for('fixin.javafmu') }} ">Java versions</A>.</P>
+
+<P>Documentation for Windows <em>FixMeUp!</em> (included in the
+package you'll download) is sparse, but probably sufficient. If I've
+left something obvious out you can always <a
+href="mailto:fmu@eehouse.org">email me</a>. Please let me know about
+bugs as well, of course. Really compelling feature requests might
+persuade me to turn another version, but I'll probably leave it at
+this.  I've been doing way too little fixed gear riding thanks to
+various coding exercises.</P>
+
+<H3>Click below to download...</H3>
+
+<P>I had a seven-week sabbatical (from Apple Computer) in October and
+November of 1996. One result was <A
+HREF="/fmu/FixMeUp.exe"><EM>FixMeUp!</EM> for Windows</A>. It was my
+first attempt at Windoze programming, and in fact I wrote and tested
+it entirely on a PowerMac 8500 running SoftWindows.  (That was 1996:
+now, in 2006, I've run it a lot on every version of WIndows since, and
+am maintaining it using MinGW and WINE on Linux.  It rocks!).</P>
+
+{% endblock %}

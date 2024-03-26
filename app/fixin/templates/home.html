@@ -1,0 +1,54 @@
+{#
+Copyright 1996 - 2024 by Eric House (xwords@eehouse.org).  All rights
+reserved.
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
+02111-1307, USA.
+#}
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Home Page for Fixed Innovations (and <em>FixMeUp!</em>)</h1>
+
+<p><b>Welcome to Fixed Innovations.</b></p>
+
+<p>
+This site is primarily for people who want to convert their multi-speed
+bicycles with vertical rear dropouts to fixed-gear or single-speed use. 
+It takes you through the process of selecting gears that will fit your
+frame, and makes suggestions for what to do if you aren't happy with the
+gear choices for your frame.
+</p>
+
+<p>
+I should mention: I've never seen a frame that couldn't be converted!
+It's not that hard.
+</p>
+
+<p>
+If this is your first time here, you may want to check out the
+<a href="{{ url_for('fixin.tutorial') }}">Instructions
+for <em>FixMeUp!</em></a>, which explain step-by-step how to figure
+out what gears will fit your bike.
+</p>
+
+<hr>
+
+<p>If <a href="mailto:fixin@eehouse.org">Eric House</a> ever gets around to doing a personal
+    page, this is likely where you'll find it.</p>
+
+{% endblock %}

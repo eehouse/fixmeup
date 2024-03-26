@@ -1,0 +1,44 @@
+{#
+Copyright 1996 - 2024 by Eric House (xwords@eehouse.org).  All rights
+reserved.
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
+02111-1307, USA.
+#}
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<h1>Using Chainstretch with <em>FixMeUp!</em></h1>
+
+<p>Normally <em>FixMeUp!</em> assumes that your chain is exactly 1&quot; long per
+link.  It draws gears on the chart based on that assumption.  And we
+recommend that you use a new chain in order to keep the assumption valid
+and to eliminate an unnecessary variable.
+</p>
+
+<p>
+Using a slightly worn chain has a dramatic effect on the results <em>FixMeUp!</em>
+produces -- as you can see if you select a gear in the middle of the chart
+and then redraw using a very small stretch value, say 0.01.  If you find
+that there is no workable gear that will fit your frame, you can use 
+chainstretch to your advantage.  This page tells you how.
+</p>
+
+<p>More to come....</p>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+Ok, so you've successfully checked out FixMeUp from github. This
+document describes how to get it working locally, and then how to
+configure a Linux server to host it on the web.
+
+Note that this directory lives in /home/prod/flask-apps on my
+machines. You may need to change paths in the instructions below and
+even in included files (e.g. fixmeup.service) if you have it somewhere
+else.
+
+Also note that I use Debian and Ubuntu. I have no idea if any of this
+works on MacOS or WindowsAnything.
+
+------------------------- Local configuration -------------------------
+
+First, install the necessary system packages. This command will work
+on Debian or derivatives like Ubuntu:
+
+# sudo apt install python3-venv libpython3-dev
+
+Now cd into the directory where this file (that you're reading now) is
+located. Run the following three commands to create a python virtual
+environment to host FixMeUp. (The same environment works for
+development and for public consumption online.)
+
+# python3 -m venv venv
+# . ./venv/bin/activate
+(venv) # pip install -r requirements.txt
+
+Now you can launch the development server:
+(venv) # flask run
+
+And point a browser (on the same machine you're using for this) at:
+http://127.0.0.1:5000/fixin/
+
+You should see the Home Page for FixMeUp! in your browser.
+
+------------------------- Server configuration -------------------------
+
+Complete server config is harder and more variable than I can promise
+to explain here. My own config is set up to make it easy to add
+multiple flask-based apps (like FixMeUp). Basically my config was
+created by these three steps (IIRC):
+
+1) Install nginx
+
+# sudo apt install nginx
+
+2) Install and run certbot, which will modify the nginx config to
+include https support. (This may be optional if you don't care about
+https. But I haven't tried setting up a server without it in longer
+than I've been using flask.)
+
+# sudo apt install certbot python3-certbot-nginx
+# sudo certbot -d <yourdomain.com>
+
+3) Configure nginx to know about the fixin and fmu paths. In my case,
+that was as simple as adding the following line at the end of the
+default server config of nginx (/etc/nginx/sites-enabled/default):
+
+    include /home/prod/flask-apps/*/nginx.conf;
+
+Finally, you need to tell systemd to run your server.
+
+# (cd /etc/systemd/system && sudo ln -sf /home/prod/flask-apps/fixmeup/server_config/files/etc/systemd/system/fixmeup.service .)
+
+Restart nginx and start fixmeup.service
+
+# sudo systemctl restart nginx
+# sudo systemctl start fixmeup.service
+
+Now any browser in the world should see FixMeUp at https://yourdomain.com/fixin.
+
+Finally, when all's working, and if you want FixMeUp to survive reboots
+
+# sudo systemctl enable fixmeup.service
+

@@ -1,0 +1,59 @@
+{#
+Copyright 1996 - 2024 by Eric House (xwords@eehouse.org).  All rights
+reserved.
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
+02111-1307, USA.
+#}
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1><em>FixMeUp!</em></h1>
+
+<p><em>FixMeUp!</em> is software that helps you figure out what gears will fit on
+your fixed-gear or single-speed bike.  It&#39;s particularly useful for bike
+frames with vertical dropouts, because on those frames you can&#39;t just move
+the rear wheel to take up slack in the chain.
+</P>
+
+<P>There are four different versions of <EM>FixMeUp!</EM>.</P>
+
+<P>First, there&#39;s the <A HREF="{{ url_for('fixin.formfmu') }}">HTML form version</A>.
+This will run on any browser (including text-only browsers if you
+choose the text-only option on the form) and requires no downloading.
+</P>
+
+<P>Next, there are several <A HREF="{{ url_for('fixin.javafmu')
+}}">Java versions</A>.  These require a browser that can run Java
+applets.
+</P>
+
+<P>Finally, there is a <A HREF="{{ url_for('fixin.downloads') }}">native version</A> for
+Wintel computers.  This you have to download to your own computer,
+then run it outside the browser.  But once you&#39;re done you can run
+<EM>FixMeUp!</EM> without a network connection.  </P>
+
+<P>We recommend that you start with the Java version if you can, or the
+HTML version if your browser can&#39;t run Java.  If you find yourself hooked
+on <EM>FixMeUp!</EM>, come back later and snag the native version that&#39;s right for
+your machine.
+</P>
+
+<p>Enjoy!  And be sure to <a href="mailto:fixin@eehouse.org">let us know</a>
+    what you think.</P>
+
+{% endblock %}

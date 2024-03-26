@@ -1,0 +1,118 @@
+{#
+Copyright 1996 - 2024 by Eric House (xwords@eehouse.org).  All rights
+reserved.
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
+02111-1307, USA.
+#}
+
+<html>
+    <head>
+        <style type="text/css">
+            h1,h2,h3,h4 { text-align: center; }
+            .em1 { margin-left: 1em; }
+            dt { font-weight: bold; }
+            dd { margin-bottom: 6px; }
+            .dated { background-color: pink; }
+            div.ex2 {
+                max-width: 1100px;
+                margin: auto;
+                border: 3px solid #CC99CC;
+                background-image: url("{{ url_for('static', filename='img/cog.png' ) }}")
+            }
+            div.bbar {background-color: #CC99CC;}
+        </style>
+    </head>
+
+    <body>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        <div class=ex2>
+            <table width="600">
+                <tr><td>
+                        <table border=0 cellspacing=0 cellpadding=5 >
+                            <tr>  <TD WIDTH="99" VALIGN=TOP 
+                                      height=100		
+                                      bgcolor="CC99CC">	
+                                    <CENTER>		
+                                        <A HREF="{{url_for('fixin.credits')
+                                        }}"><IMG SRC="{{
+                                        url_for('static',
+                                        filename='img/rotation3_27.gif')
+                                        }}" WIDTH="99" HEIGHT="99"
+                                        ALT="FI logo"></A>
+                                    </CENTER>
+                                    <font face="Arial, Helvetica, sanserif" size=2><div >Home</div>
+                                        <div ><a href="{{ url_for('fixin.why') }}">Why ride fixed?</a></div>
+                                        <div ><a href="{{ url_for('fixin.fixin') }}">Fixed Innovations</a></div>
+                                        <div class="em1"><a href="{{ url_for('fixin.axle') }}">FI Axle explained</a></div>
+                                        <div class="em1"><a href="{{ url_for('fixin.products') }}">FI Products</a></div>
+                                        <div class="em1"><a href="{{ url_for('fixin.order') }}">FI Order Form</a></div>
+                                        <div ><a href="{{ url_for('fixin.fixmeup') }}">FixMeUp!</a></div>
+                                        <div class="em1"><a href="{{ url_for('fixin.tutorial') }}">Instructions</a></div>
+                                        <div class="em1"><a href="{{ url_for('fixin.formfmu') }}">HTML form</a></div>
+                                        <div class="em1"><a href="{{ url_for('fixin.downloads') }}">Mac & Win</a></div>
+                                        <div class="em1"><a href="{{ url_for('fixin.stretch') }}">Chainstretch</a></div>
+                                        <div ><a href="{{ url_for('fixin.chainstay') }}">Chainstay Length</a></div>
+                                        <div ><a href="{{ url_for('fixin.links') }}">Links</a></div>
+                                        <div ><a href="{{ url_for('fixin.source') }}">Source</a></div>
+                                        <div ><a href="{{ url_for('fixin.credits') }}">Credits</a></div>
+                                        <A HREF="mailto:fixin@eehouse.org">Mail us</A>		
+	                                </FONT>								
+	                            </td>								
+	                            <td background="{{ url_for('static', filename='img/smlink.png') }}" width="18"			
+	                                bgcolor="CC99CC">						
+	                                <img src="/static/img/trans.png" width=18 height=1 alt="">
+	                            </td><td>
+
+                                    {% if dated %}
+                                    <div class="dated"><em>The contents of this page are
+                                        out-of-date. They're here for historical interest only. A
+                                        lot has changed since Fixed Innovations started:
+                                        Bullseye's gone out of business, Phil Wood's track hubs
+                                        don't take 12mm axles, and White Industries has
+                                        introduced their <a href="">Eno Hub</a>,
+                                        paying the FI axle the ultimate compliment. :-) So we're not selling
+                                        anything anymore, but will still keep this site and <em>FixMeUp!</em>
+                                        going.
+                                        </em>
+
+                                    </div>
+                                        {% endif %}
+                                        {% block content %}{% endblock %}
+
+                            </td></tr>
+                        </table>
+                        <div class="bbar" align="center">Copyright 1996-2020 by Eric House & Fixed Innovations
+                            <br><em>This site was completely rewritten
+                            around October 2020. If you notice
+                            problems they are probably new!<br>
+                            Please <a href="mailto:fixin@eehouse.org">let
+                            me know</a> if you find problems or have
+                            comments about this site.</em>
+                        </div>
+                </td></tr>
+            </table>
+        </div>
+</body></html>

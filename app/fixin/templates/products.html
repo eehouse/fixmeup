@@ -1,0 +1,122 @@
+{#
+Copyright 1996 - 2024 by Eric House (xwords@eehouse.org).  All rights
+reserved.
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
+02111-1307, USA.
+#}
+
+{% extends "base.html" %}
+{% block content %}
+
+<H1>Fixed Innovations Products</H1>
+
+<P>Here you'll find information about the
+    <A HREF="{{url_for('fixin.products',_anchor='fi_axle')}}">axles</A>,
+    <A HREF="{{url_for('fixin.products',_anchor='beye_hubs')}}">Bullseye</A>
+and <A HREF="{{ url_for('fixin.products',_anchor='phil_hubs')}}">Phil Wood</A> hubs
+available through Fixed Innovations.  </P>
+
+<P>For pricing, and to order, see our <A HREF="{{url_for('fixin.order') }}">orders
+page</A>.</P>
+
+<HR>
+
+<a name=#fi_axle></a>
+<H4>Fixed Innovations axle</H4>
+
+<P>Our axles are made to our design by Bullseye Cycle Corp.  They're
+turned from centerless-ground 12mm 7075 aluminum rod stock, and are
+identical to standard Bullseye axles but for the eccentric ends.  We've
+never seen one fail; but more significantly, Bullseye hasn't either,
+and they've been making them for 25 years.</P>
+
+<P>Our axles are available either as an upgrade for Bullseye hubs 
+you already own or with Bullseye hubs purchased from us.</P>
+
+<P>We stock axles and axle kits in 130 and 135mm lengths.  Other lengths
+are available but may take longer to get.  MAILME(Tell us) what you need
+and we'll give you an estimate of when it'll be available.
+</P>
+
+<a name=#beye_hubs></a>
+<H4>Bullseye hubs</H4>
+
+<P>We offer a custom-width double-sided version of the hub that
+Bullseye has been making since the early '70s. Flanges are identical
+to those on "normal" Bullseye hubs, so you can run a freewheel in
+place of your fixed cog when you want -- assuming the hub is spaced to
+allow room.</P>
+
+<P>Flange spacing on our Bullseye hubs is 52mm. This lines both cogs
+up perfectly with most small chainrings; if you want to use one cog
+with the big ring and the other with the small you'll want to respace
+the hub slightly so that each cog is about 4mm inboard of the
+chainring it goes with. </P>
+
+<P>Bullseye hubs are available in drillings from 28-48, and with axle
+lengths from 120 to 145, all at the same price. Flanges come in any of
+seven colors (blue, red, purple, lavender, green, black and silver;
+black and silver only for 40 and 48 holes; see Bullseye's <A
+HREF="http://www.bullseyecycle.com/colorchart.htm">color page</A> for
+details), again at no extra cost. (Center sections are silver only.)
+We stock only silver hubs, but are happy to order other colors.</P>
+
+<p>Bullseye axles take either quick releases or bolts. Bolts are
+included.  If you prefer a quick release, we carry Salsa's Flip-offs
+or you can use any QR you already have.</p>
+
+<P><B>Notes</B>: The lack of a lockring means that, in theory at
+least, your fixed cog may unscrew -- during hard backpedaling, for
+instance.  Anecdotal evidence suggests that this is not a problem in
+practice, and particularly not with gears above 65&quot; or so, but
+you should be aware of it. Don't even think of using one of these hubs
+on a bike without two working brakes -- not that that's a good idea
+under any circumstances!  And use Loctite rather than antisieze when
+installing the cogs.</P>
+
+
+<A HREF="{{url_for('fixin.order') }}">Prices</A>
+
+<a name=#phil_hubs></a>
+<TABLE><TR>
+<TD>
+<H4>Phil Wood hubs</H4>
+</TD>
+<TD>
+<IMG SRC="./img/trackhubsm.jpeg">
+</TD>
+</TR></TABLE>
+
+<P>Phil's double-sided-with-lockrings track hubs, while expensive,
+are probably the ultimate hub for a dedicated fixed gear wheel.
+The lockrings ensure that the cogs won't come unscrewed, even with
+very low gears. Flange spacing is 58mm, which places the cogs for an
+almost-perfect chainline with either chainring (assuming your
+chainrings are centered about 43mm from the frame's centerline. This
+is normal for a road bike, but exceptions abound.)</P>
+
+<P>Phil hubs are Available with bolt-on or hollow quick-release-ready
+axles, in 120, 126, 130 or 135mm lengths.  126-135mm cost
+more. Drilling for 28, 32 or 36 holes is standard; other drillings are
+available but cost more.  QRs are not included with the hollow Phil
+axles, but we carry Salsa's Flip-offs or you can use any QR you
+already have.</P>
+
+<p>Phil offers a single-sided version of this hub at a slightly lower
+price, and one with one side threaded for a single-speed freewheel.
+</P>
+
+{% endblock %}

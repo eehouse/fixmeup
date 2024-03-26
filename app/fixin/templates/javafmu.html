@@ -1,0 +1,75 @@
+{#
+Copyright 1996 - 2024 by Eric House (xwords@eehouse.org).  All rights
+reserved.
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
+02111-1307, USA.
+#}
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dated">
+    The contents of this page are out-of-date and are here for
+    historical interest only. Though the java version of FixMeUp! was
+    first, browsers no longer support java Applets and so it's not
+    possible to provide it now.
+    The <a href="{{url_for('fixin.formfmu')}}">HTML version</a> is the
+    only version left.
+</div>
+
+<H1>Java versions of <EM>FixMeUp!</EM></H1>
+
+<table>
+    <tr>
+        <td><img src="{{url_for('static', filename='img/5perc.png') }}"></td>
+        <td>The Java version of <em>FixMeUp!</em> was first, and was also
+            among the first serious applets written.  It won a &quot;Top 5
+            Percent&quot; award back in 1996.
+        </td>
+    </tr>
+</table>
+
+<P>In case you missed them, here are the <A
+HREF="{{url_for('fixin.tutorial') }}">Instructions for <EM>FixMeUp!</EM></A>.</P>
+
+<applet code="org/eehouse/fmu1_1/fmu/FixMeUp.class" 
+	width=500 height=400 align=bottom>
+<PARAM name = "MaxRing" value = "53" >
+<PARAM name = "MinRing" value = "39" >
+<PARAM name = "MaxCog" value = "24" >
+<PARAM name = "MinCog" value = "14" >
+<PARAM name = "UserStaylen" value = "16.117" >
+<PARAM name = "WheelCircumference" value = "700x23" >
+<PARAM name = "FontSize" value = "14" >
+
+<P>If you see this line your browser does not understand Java and will
+not be able to run FixMeUp!</P>
+</APPLET>
+
+<p>
+If you have a larger screen,
+try <a href="{{url_for('fixin.fmu1_1_big') }}">this bigger
+version</a>.
+</p>
+
+
+<p> If you haven&#39;t used <EM>FixMeUp!</EM> before and want to find
+    out in advance what to expect, check out the
+    <A href="{{url_for('fixin.tutorial') }}"><EM>FixMeUp!</EM>
+    instructions</A>.
+</p>
+
+{% endblock %}

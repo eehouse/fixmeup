@@ -1,0 +1,33 @@
+# Copyright 1996 - 2024 by Eric House (xwords@eehouse.org).  All rights
+# reserved.
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
+# 02111-1307, USA.
+
+from flask import render_template, send_file, request
+from app.fmu import bp
+# from PIL import Image
+from io import BytesIO
+from app.fmu.makepng import makePNG
+from app.fmu.engine import addDefaults
+
+@bp.route('/makepng')
+def makepng():
+    fontPath = 'app/static/fonts/UbuntuMono-BI.ttf'
+    img = makePNG(addDefaults(request.args), fontPath)
+    img_io = BytesIO()
+    img.save(img_io, 'PNG')
+    img_io.seek(0)
+    return send_file(img_io, mimetype='image/png')
